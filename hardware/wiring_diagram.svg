@@ -1,1 +1,106 @@
+<svg width="100%" viewBox="0 0 680 820" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Autonomous Perimeter Surveillance System — Wiring Diagram</title>
+  <desc>Wiring diagram showing all five components connected to the Raspberry Pi 4 GPIO header</desc>
 
+  <style>
+    text { font-family: Arial, sans-serif; fill: #333; }
+    .th { font-size: 14px; font-weight: bold; }
+    .ts { font-size: 12px; }
+    .pi-box { fill: #e8e6df; stroke: #888; stroke-width: 1; }
+    .pir-box { fill: #e1f5ee; stroke: #0f6e56; stroke-width: 0.5; }
+    .ultra-box { fill: #e6f1fb; stroke: #185fa5; stroke-width: 0.5; }
+    .oled-box { fill: #eeedfe; stroke: #534ab7; stroke-width: 0.5; }
+    .servo-box { fill: #faece7; stroke: #993c1d; stroke-width: 0.5; }
+    .cam-box { fill: #faeeda; stroke: #854f0b; stroke-width: 0.5; }
+    .legend-box { fill: none; stroke: #aaa; stroke-width: 0.5; }
+  </style>
+
+  <!-- Raspberry Pi 4 -->
+  <rect class="pi-box" x="220" y="310" width="240" height="200" rx="10"/>
+  <text class="th" x="340" y="385" text-anchor="middle">Raspberry Pi 4</text>
+  <text class="ts" x="340" y="408" text-anchor="middle">40-pin GPIO header</text>
+  <text class="ts" x="240" y="440">Pin 1 · 3.3V</text>
+  <text class="ts" x="240" y="458">Pin 2 · 5V</text>
+  <text class="ts" x="240" y="476">Pin 3 · GPIO 2 (SDA)</text>
+  <text class="ts" x="240" y="494">Pin 5 · GPIO 3 (SCL)</text>
+  <text class="ts" x="420" y="440" text-anchor="end">GPIO 17 · Pin 11</text>
+  <text class="ts" x="420" y="458" text-anchor="end">GPIO 23 · Pin 16</text>
+  <text class="ts" x="420" y="476" text-anchor="end">GPIO 24 · Pin 18</text>
+  <text class="ts" x="420" y="494" text-anchor="end">GPIO 18 · Pin 12</text>
+
+  <!-- PIR Sensor -->
+  <rect class="pir-box" x="30" y="30" width="160" height="100" rx="8"/>
+  <text class="th" x="110" y="68" text-anchor="middle">HC-SR501</text>
+  <text class="ts" x="110" y="88" text-anchor="middle">PIR motion sensor</text>
+  <text class="ts" x="110" y="108" text-anchor="middle">VCC · OUT · GND</text>
+  <!-- PIR wires -->
+  <path d="M110 130 L110 160 L200 160 L200 455" fill="none" stroke="#E24B4A" stroke-width="1.5"/>
+  <path d="M190 80 L460 80 L460 437" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
+  <path d="M130 130 L130 175 L195 175 L195 520 L220 520" fill="none" stroke="#555" stroke-width="1.5" opacity="0.5"/>
+  <text class="ts" x="150" y="158" fill="#E24B4A">5V</text>
+  <text class="ts" x="435" y="75" fill="#EF9F27">OUT</text>
+  <text class="ts" x="150" y="173" fill="#555" opacity="0.7">GND</text>
+
+  <!-- HC-SR04 Ultrasonic -->
+  <rect class="ultra-box" x="490" y="30" width="160" height="110" rx="8"/>
+  <text class="th" x="570" y="65" text-anchor="middle">HC-SR04</text>
+  <text class="ts" x="570" y="85" text-anchor="middle">Ultrasonic sensor</text>
+  <text class="ts" x="570" y="103" text-anchor="middle">VCC·TRIG·ECHO·GND</text>
+  <!-- Ultrasonic wires -->
+  <path d="M570 140 L570 185 L475 185 L475 455" fill="none" stroke="#E24B4A" stroke-width="1.5"/>
+  <path d="M540 140 L540 200 L480 200 L480 458" fill="none" stroke="#EF9F27" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <path d="M510 140 L510 215 L485 215 L485 476" fill="none" stroke="#639922" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <path d="M600 140 L600 220 L490 220 L490 520 L460 520" fill="none" stroke="#555" stroke-width="1.5" opacity="0.5"/>
+  <text class="ts" x="555" y="183" fill="#E24B4A">5V</text>
+  <text class="ts" x="500" y="198" fill="#EF9F27">TRIG</text>
+  <text class="ts" x="500" y="214" fill="#639922">ECHO</text>
+  <text class="ts" x="570" y="218" fill="#555" opacity="0.7">GND</text>
+
+  <!-- OLED Display -->
+  <rect class="oled-box" x="30" y="620" width="160" height="110" rx="8"/>
+  <text class="th" x="110" y="658" text-anchor="middle">SSD1306 OLED</text>
+  <text class="ts" x="110" y="676" text-anchor="middle">128x64 I2C display</text>
+  <text class="ts" x="110" y="694" text-anchor="middle">VCC·GND·SCL·SDA</text>
+  <text class="ts" x="110" y="712" text-anchor="middle">addr: 0x3C</text>
+  <!-- OLED wires -->
+  <path d="M110 620 L110 580 L200 580 L200 510" fill="none" stroke="#E24B4A" stroke-width="1.5"/>
+  <path d="M130 620 L130 565 L195 565 L195 530 L220 530" fill="none" stroke="#555" stroke-width="1.5" opacity="0.5"/>
+  <path d="M150 620 L150 550 L205 550 L205 494" fill="none" stroke="#378ADD" stroke-width="1.5"/>
+  <path d="M170 620 L170 535 L210 535 L210 476" fill="none" stroke="#7F77DD" stroke-width="1.5"/>
+  <text class="ts" x="148" y="578" fill="#E24B4A">3.3V</text>
+  <text class="ts" x="148" y="563" fill="#555" opacity="0.7">GND</text>
+  <text class="ts" x="155" y="548" fill="#378ADD">SCL</text>
+  <text class="ts" x="172" y="533" fill="#7F77DD">SDA</text>
+
+  <!-- SG90 Servo -->
+  <rect class="servo-box" x="490" y="620" width="160" height="100" rx="8"/>
+  <text class="th" x="570" y="658" text-anchor="middle">SG90 Servo</text>
+  <text class="ts" x="570" y="676" text-anchor="middle">Pan / track camera</text>
+  <text class="ts" x="570" y="694" text-anchor="middle">Brown·Red·Orange</text>
+  <!-- Servo wires -->
+  <path d="M570 620 L570 590 L475 590 L475 510" fill="none" stroke="#E24B4A" stroke-width="1.5"/>
+  <path d="M540 620 L540 575 L480 575 L480 494" fill="none" stroke="#EF9F27" stroke-width="1.5"/>
+  <path d="M600 620 L600 605 L490 605 L490 530 L460 530" fill="none" stroke="#555" stroke-width="1.5" opacity="0.5"/>
+  <text class="ts" x="520" y="588" fill="#E24B4A">5V</text>
+  <text class="ts" x="500" y="573" fill="#EF9F27">PWM</text>
+  <text class="ts" x="560" y="603" fill="#555" opacity="0.7">GND</text>
+
+  <!-- Pi Camera -->
+  <rect class="cam-box" x="255" y="30" width="170" height="80" rx="8"/>
+  <text class="th" x="340" y="60" text-anchor="middle">Pi Camera Module 3</text>
+  <text class="ts" x="340" y="80" text-anchor="middle">CSI ribbon cable</text>
+  <line x1="340" y1="110" x2="340" y2="310" stroke="#BA7517" stroke-width="3" stroke-dasharray="6 3"/>
+  <text class="ts" x="350" y="215" fill="#BA7517">CSI-2</text>
+
+  <!-- Legend -->
+  <rect class="legend-box" x="180" y="758" width="320" height="46" rx="6"/>
+  <text class="ts" x="340" y="772" text-anchor="middle" font-weight="bold">Wire colors</text>
+  <line x1="195" y1="790" x2="215" y2="790" stroke="#E24B4A" stroke-width="2"/>
+  <text class="ts" x="218" y="794" fill="#E24B4A">Power</text>
+  <line x1="268" y1="790" x2="288" y2="790" stroke="#555" stroke-width="2" opacity="0.6"/>
+  <text class="ts" x="291" y="794" fill="#555">GND</text>
+  <line x1="328" y1="790" x2="348" y2="790" stroke="#EF9F27" stroke-width="2"/>
+  <text class="ts" x="351" y="794" fill="#EF9F27">Signal</text>
+  <line x1="398" y1="790" x2="418" y2="790" stroke="#BA7517" stroke-width="3" stroke-dasharray="4 2"/>
+  <text class="ts" x="421" y="794" fill="#BA7517">CSI</text>
+</svg>
