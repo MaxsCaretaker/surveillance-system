@@ -47,6 +47,9 @@ Camera ──────┘
 | SG90 Servo Motor | Camera pan / target tracking |
 | SSD1306 OLED (128x64) | Local status display |
 
+
+![Wiring Diagram](hardware/wiring_diagram.svg)
+
 ---
 
 ## Features
